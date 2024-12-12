@@ -100,3 +100,7 @@ function restartGame() {
 
     spinNames(); // Restart the spinning process
 }
+
+function goToHome() {
+    window.location.href = 'index.html'; // Redirect to the home page
+}
