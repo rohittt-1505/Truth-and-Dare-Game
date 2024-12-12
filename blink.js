@@ -75,9 +75,6 @@ function spinTruthDare() {
     const resultDisplay = document.getElementById('result');
     const options = ['Truth', 'Dare', 'Pass'];
 
-    resultDisplay.textContent = ''; // Clear previous result
-    resultDisplay.classList.add('blinking');
-
     truthDareInterval = setInterval(() => {
         const randomIndex = Math.floor(Math.random() * options.length);
         resultDisplay.textContent = options[randomIndex];
@@ -87,9 +84,58 @@ function spinTruthDare() {
         clearInterval(truthDareInterval);
         const randomIndex = Math.floor(Math.random() * options.length);
         resultDisplay.textContent = options[randomIndex];
-        resultDisplay.classList.remove('blinking');
+        resultDisplay.classList.remove('blinking'); // Stop blinking
+
+        // If the result is 'Pass', trigger the celebration
+        if (resultDisplay.textContent === 'Pass') {
+            celebrate(); // Trigger fireworks celebration
+        }
     }, 5000);
 }
+
+// Function to trigger the fireworks celebration
+function celebrate() {
+    const fireworksContainer = document.getElementById('fireworks-container');
+    fireworksContainer.classList.remove('d-none'); // Make fireworks container visible
+
+    for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+            createFirework(fireworksContainer);
+        }, i * 500); // Stagger each firework
+    }
+
+    setTimeout(() => {
+        fireworksContainer.classList.add('d-none'); // Hide fireworks container after celebration
+        fireworksContainer.innerHTML = ''; // Remove any remaining particles
+    }, 3000); // End celebration after 3 seconds
+}
+
+function createFirework(container) {
+    const firework = document.createElement('div');
+    firework.classList.add('firework');
+    firework.style.top = `${Math.random() * 100}%`;
+    firework.style.left = `${Math.random() * 100}%`;
+    container.appendChild(firework);
+
+    for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.setProperty('--x', `${Math.random() * 200 - 100}px`);
+        particle.style.setProperty('--y', `${Math.random() * 200 - 100}px`);
+        particle.style.backgroundColor = randomColor();
+        firework.appendChild(particle);
+    }
+
+    setTimeout(() => {
+        firework.remove(); // Remove firework after animation
+    }, 1500);
+}
+
+function randomColor() {
+    const colors = ['#ff6347', '#ffa500', '#00ff00', '#00ced1', '#1e90ff', '#ff69b4'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
 
 function restartGame() {
     document.getElementById('playerNameDisplay').textContent = ''; // Clear player name display
