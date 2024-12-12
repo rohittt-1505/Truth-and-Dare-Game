@@ -1,0 +1,159 @@
+/* General Styles */
+body {
+    background-color: #121212; /* Dark background for night mode */
+    color: #fff; /* White text for contrast */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.container {
+    max-width: 600px; /* Set a max width for the game box */
+    width: 100%; /* Allow it to be responsive */
+    padding: 20px;
+    background-color: #1e1e1e; /* Dark background for the game box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); /* Add a shadow for a 3D effect */
+    text-align: center; /* Center text inside */
+}
+
+/* Card Styles */
+.card {
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #333; /* Dark card background */
+}
+
+/* Titles */
+h1, h2 {
+    color: #4CAF50; /* Green for title */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+button {
+    border-radius: 25px;
+    padding: 8px 15px;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+/* Blinking Effect */
+.blinking {
+    animation: blink-animation 1.5s infinite steps(1, start);
+}
+
+@keyframes blink-animation {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1, h2 {
+        font-size: 1.3rem;
+    }
+
+    button {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    .form-control {
+        width: 70% !important;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    #playerNameDisplay {
+        font-size: 2.5rem;
+    }
+
+    #result {
+        font-size: 2.2rem;
+    }
+}
+
+/* Small Screen Adjustments (Mobile Devices) */
+@media (max-width: 480px) {
+    h1, h2 {
+        font-size: 1.1rem;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .form-control {
+        width: 80% !important;
+    }
+
+    #playerNameDisplay {
+        font-size: 2rem;
+    }
+
+    #result {
+        font-size: 1.8rem;
+    }
+}
+
+/* Buttons Color */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    border: none;
+}
+
+/* Footer Styling */
+.footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #121212;
+    padding: 10px;
+    color: #bbb;
+    font-size: 12px;
+}
+
+
+/* self */
+.btn-info1 {
+    border: none;
+    color: #bb86fc;
+    cursor: pointer;
+}
