@@ -54,14 +54,13 @@ function createPlayerCircle() {
 }
 
 function spinArrow() {
-    const arrow = document.getElementById('arrow');
+    const arrow = document.getElementById('clock');
     let rotation = 0;
 
-    // Speed up rotation (faster than before)
     spinningInterval = setInterval(() => {
-        rotation += 20; // Increase increment for faster rotation
+        rotation += 20;
         arrow.style.transform = `translate(-50%, -100%) rotate(${rotation}deg)`;
-    }, 30); // Faster interval (every 30ms)
+    }, 30);
 
     setTimeout(() => {
         clearInterval(spinningInterval);
@@ -74,9 +73,8 @@ function spinArrow() {
         document.getElementById('gameScreen').classList.add('d-none');
         document.getElementById('truthDareScreen').classList.remove('d-none');
         document.getElementById('startButton').classList.remove('d-none');
-    }, 7000); // Stop after 7 seconds
+    }, 7000);
 }
-
 
 function startTurn() {
     document.getElementById('startButton').classList.add('d-none');
@@ -95,4 +93,19 @@ function spinTruthDare() {
     setTimeout(() => {
         clearInterval(truthDareInterval);
     }, 5000);
+}
+
+function restartGame() {
+    document.getElementById('selectedPlayer').textContent = '';
+    document.getElementById('result').textContent = '';
+    document.getElementById('askPlayer').textContent = '';
+    document.getElementById('truthDareScreen').classList.add('d-none');
+    document.getElementById('gameScreen').classList.remove('d-none');
+    const arrow = document.getElementById('clock');
+    arrow.style.transform = `translate(-50%, -100%) rotate(0deg)`;
+    spinArrow();
+}
+
+function goHome() {
+    location.reload(); // Reload the page to go back to the welcome screen
 }
