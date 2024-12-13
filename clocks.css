@@ -74,15 +74,16 @@ button {
 
 /* Styling for spinning circle */
 /* Responsive circle */
+/* Responsive circle */
 .circle-container {
     position: relative;
-    width: 70vw; /* Use a percentage of the viewport width */
-    height: 70vw; /* Keep the height and width proportional */
+    width: 70vw; /* Responsive size based on viewport width */
+    height: 70vw; /* Same as width to keep it circular */
     margin: auto;
     border: 2px solid #000;
     border-radius: 50%;
-    max-width: 400px; /* Set a maximum size */
-    max-height: 400px; /* Set a maximum height */
+    max-width: 500px; /* Max size to prevent too large on desktop */
+    max-height: 500px; /* Max height for the circle */
 }
 
 /* Player circle resizing */
@@ -94,17 +95,26 @@ button {
     justify-content: center;
     align-items: center;
     transform-origin: center;
+    z-index: 1;
 }
 
-/* Clock (arrow) resizing */
+/* Styling for player names */
+.player-name {
+    position: absolute;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    transform-origin: 50% 100%;
+    transition: transform 0.5s ease;
+}
 
-
+/* Clock (Arrow) Styling */
 .arrow {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 10px;
-    height: 100px;
+    height: 50%;
     background: red;
     transform-origin: center bottom;
     transform: translate(-50%, -100%) rotate(0deg);
